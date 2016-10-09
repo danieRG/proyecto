@@ -47,7 +47,7 @@
     <br><br>
       <div class="starter-template">
         <h1>Materia Nueva</h1>
-        <form method="POST" action="" class="form-horizontal" role="form">
+        <form method="POST" action="" class="form-horizontal" role="form" enctype='multipart/form-data'>
 
          <div class="form-group">
          <div class="col-lg-5">
@@ -58,8 +58,8 @@
 
          <div class="form-group">
          <div class="col-lg-5">
-         <label>Numero: </label>
-         <input type="name" class="form-control"  name="numero"/>
+         <label>Imagen: </label>
+         <input type="file" class="form-control"  name="numero"/>
          </div>
          </div>
 

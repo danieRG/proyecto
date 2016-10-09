@@ -61,28 +61,34 @@ $res= mysqli_query($con,$sql);
 
       	<h4>Materias</h4>
         <table class="table table-striped">
+        <thead>
           <tr>
-            <td>Nombre</td>
-            <td>Numero</td>
-            <td>Grado</td>
-            <td>Asesor Ac&aacutedemico</td>
-            <td>Ver</td>
-            <td>Eliminar</td>
+            <th>Nombre</th>
+            <th>Grado</th>
+            <th>Asesor Ac&aacutedemico</th>
+            <th>Ver</th>
+            <th>Eliminar</th>
           </tr>
+          </thead>
         
           <?php
+          $contador=0;
           while ($row = mysqli_fetch_array($res))
           { ?>
 
               <tr>
                 <td><?php echo $row['materia']; ?> </td>
-                <td><?php echo $row['numero']; ?> </td>
                 <td><?php echo $row['grado']; ?> </td>
                 <td><?php echo $row['asesor']; ?> </td>
                 <td><a href="verMateria.php?idmateria=<?php echo "$row[0]";?>" class="btn btn-info">Ver</a></td>
                 <td><a href="eliminar?id=" class="btn btn-danger">Eliminar</a></td>
              </tr>
-          <?php      
+          <?php    
+          $contador++;  
+          }
+          if($contador==0)
+          {
+            echo "<tr><td colspan='6'>No hay materias registradas</td></tr>";
           }
           ?>
 

@@ -1,22 +1,9 @@
-<?php
-/*include("sesion.php");
+<?
 session_start();
-include("recursos/config.php");
-$_SESSION["iduser"];
 
+$id= $_GET['id'];
 
-$archivo = "server\php\files\2.mov"; 
-$trozos = explode(".", $archivo); 
-$extension = end($trozos); 
-// mostramos la extensi�n del archivo
-echo $extension;
-
-if($extension=="mov") 
-    echo "<br>EL ARCHIVO SE PUEDE SUBIR";
-else
-    echo "EL TIPO ARCHIVO NO SE PUEDE SUBIR";
-
-*/?>
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -105,8 +92,17 @@ else
         <!-- Page Header -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Lista de videos
-                    <small>27-09-2016</small>
+                <h1 class="page-header">
+                <?php
+                include 'conexion.php'; 
+                $id= $_GET['id'];
+                $sql= "SELECT * FROM materia where idmateria =".$id;
+$res= mysqli_query($con,$sql);
+          if ($row = mysqli_fetch_array($res))
+          { 
+echo $row['materia'];
+}
+      ?>
                 </h1>
             </div>
         </div>
@@ -114,32 +110,34 @@ else
 
         <!-- Projects Row -->
         <div class="row">
+           <?php 
+          $cont=0;
+          foreach (new DirectoryIterator('server/php/files/'.$_GET['id'].'/') as $file) {
+    if ($file->isFile()) {
+         echo '<div class="col-md-4 portfolio-item">';
+                    echo '<div class="col-md-4 portfolio-item"><video width="350" height="200" controls>
+  <source src="server/php/files/'.$_GET['id'].'/'.$file->getFilename().'" type="video/mp4">
+Este buscador no soporta el video tag.
+</video>';
+
+
+
+
+
+        $cont++;
+    }
+}
+
+          ?>
+          <?php 
+          if($cont==0)
+          {
+            echo '<tr><td colspan="4">No se han subido archivos</td></tr>';
+          }
+          ?>
        
             
-                 <?php
-                 include 'conexion.php'; 
-                 $sql= "SELECT * FROM materia";
-                 $res= mysqli_query($con,$sql);
-                 $contador=0;
-                   while ($row = mysqli_fetch_array($res))
-                   {
-                     echo '<div class="col-md-4 portfolio-item">';
-                      echo '<div class="col-md-4 portfolio-item">
-                      <a href="verVideos.php?id='.$row['idmateria'].'"><img width="350" height="200" src="materias/'.$row['numero'].'">';
-
-
-echo '<h3><center>'.$row['materia'].'</center></h3></a></div>';
-$contador++;
-
-                   }
-
-    if($contador==0)
-    {
-        echo "<h4>No hay nada por aquí...</h4>";
-    }
-
-
-        ?>
+                
             
         </div>
 
