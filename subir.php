@@ -129,7 +129,7 @@
         <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
     </form>
  <br>
- <div class="panel panel-default">
+ <!--<div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Notas</h3>
         </div>
@@ -140,7 +140,7 @@
                 <li>El nombre del video no debe contener <strong>Acentos o Ñ.</strong></li>
             </ul>
         </div>
-    </div>
+    </div>-->
 <!-- The blueimp Gallery widget -->
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
     <div class="slides"></div>
