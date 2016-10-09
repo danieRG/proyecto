@@ -47,18 +47,47 @@
     <br><br>
       <div class="starter-template">
         <h1>Materia Nueva</h1>
-        <form method="POST" action="">
-         <table>
-          <tr><td>Nombre</td><td><input type="name" name="materia"/></td></tr>
-          <tr><td>numero</td><td><input type="name" name="numero"/></td></tr>
-          <tr><td>Grado</td><td><input type="name" name="grado"/></td></tr>
-         <tr> <td>Asesor acádemico</td><td><input type="name" name="asesor"/></td></tr>
+        <form method="POST" action="" class="form-horizontal" role="form">
 
-          
-          </table>
+         <div class="form-group">
+         <div class="col-lg-5">
+         <label>Nombre: </label>
+         <input type="name" class="form-control" name="materia"/>
+         </div>
+         </div>
 
-          <input type="submit" name="submit"  value="Registro">
-          <input type="reset">
+         <div class="form-group">
+         <div class="col-lg-5">
+         <label>Numero: </label>
+         <input type="name" class="form-control"  name="numero"/>
+         </div>
+         </div>
+
+         <div class="form-group">
+         <div class="col-lg-5">
+         <label>Grado: </label>
+         <input type="name" class="form-control"  name="grado"/>
+         </div>
+         </div>
+
+         <div class="form-group">
+
+         <div class="col-lg-5">
+         <label>Asesor académico: </label>
+        <input type="name"  class="form-control"  name="asesor"/>
+        </div>
+         </div>
+         <div class="form-group">
+         <div class="col-lg-3">
+         </div>
+         <div class="col-lg-2">
+
+
+      
+          <input type="submit" class="btn btn-success" name="submit"  value="Registro">
+          <input type="reset" value="limpiar" class="btn btn-info">
+          </div>
+          </div>
           
           </form>
 
